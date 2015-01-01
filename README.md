@@ -6,10 +6,15 @@ In order to use this script, you'll need
 
 I believe everything else I use is from the standard library.
 
+#Description of the tool
+This module is a for-fun web scraper for the roshpit.ca site. As the need to grab other data arises, I'll add to the functionality of this tool. For the time being, however, all the tool does is output a list of five users who have the highest outstanding gold bets, along with their usernames, multipliers, and silver balances. It also outputs the 5 players with the largest silver balances (though this is easy to verify using the site directly using the silver ladder). 
+
 #Using the tool
 From terminal, simply run
 
     $ python Roshpit.py
+
+The script takes about 42 seconds to run on my current internet connection (though I'm on a pretty poor internet connection, as I'm travelling).
 
 The output will be of the form:
 
