@@ -9,7 +9,7 @@ I believe everything else I use is from the standard library.
 #Description
 This module is a web scraper for roshpit.ca. As the need to grab other data arises, I'll add to the module. For the time being, however, the only use of the tool is to list the five users with the greatest outstanding gold bets, along with their usernames, current multipliers, and silver balances. 
 
-It also outputs the five players with the greatest silver balances, though this is can be found easily by inspection using the site's silver ladder directly. It is included only as a convenience, as it helps users who have the "dark patterns" tech weigh their options (i.e., if there is a player with, say, 350,000 silver, it might be best to simply cast occuli on that target to receive the guaranteed 3.5k exp). 
+It also outputs the five players with the greatest silver balances, though this can be found easily by using the site's silver ladder directly.
 
 #Use
 From terminal, simply run
