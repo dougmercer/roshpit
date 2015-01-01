@@ -55,11 +55,11 @@ class Rosh():
         setattr(self, property_tag, top)
         return self
 
-    def top_five(self):
+    def top_five(self, check_top_n):
         if not self.gold_ids or not self.silver_ids:
             self._get_uids()
         if not self.gold_top:
-            self._get_users_info('gold', 10, 50)
+            self._get_users_info('gold', 10, check_top_n)
         if not self.silver_top:
             self._get_users_info('silver', 2, 5)
         self.gold_top.sort(key=lambda x: x[2])
@@ -114,6 +114,10 @@ def _print_helper(blob):
         print('|%-12s|%-2dx|%-9d|%-11d' % (b[0], b[1], b[2], b[3]))
 
 if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        check_top_n = 50
+    else:
+        check_top_n = int(sys.argv[1])
     r = Rosh()
-    gold, silver = r.top_five()
+    gold, silver = r.top_five(check_top_n)
     printer(gold, silver)
