@@ -77,9 +77,9 @@ def get_user_gold(soup):
 def get_user_name(soup):
     name_plate = soup.find('div', 'name-plate')
     names = name_plate.find_all('div')
-    name = str(names[0].text)
+    name = names[0].text
     if name == '\n\n':
-        name = str(names[1].text)
+        name = names[1].text
     return name
 
 
@@ -114,6 +114,8 @@ def _print_helper(blob):
         print('|%-12s|%-2dx|%-9d|%-11d' % (b[0], b[1], b[2], b[3]))
 
 if __name__ == '__main__':
+    # reload(sys)
+    # sys.setdefaultencoding("utf-8")
     if len(sys.argv) == 1:
         check_top_n = 50
     else:
