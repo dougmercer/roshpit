@@ -6,16 +6,25 @@ In order to use this script, you'll need
 
 I believe everything else I use is from the standard library.
 
-#Description of the tool
-This module is a for-fun web scraper for the roshpit.ca site. As the need to grab other data arises, I'll add to the functionality of this tool. For the time being, however, all the tool does is output a list of five users who have the highest outstanding gold bets, along with their usernames, multipliers, and silver balances. It also outputs the 5 players with the largest silver balances (though this is easy to verify using the site directly using the silver ladder). 
+#Description
+This module is a web scraper for roshpit.ca. As the need to grab other data arises, I'll add to the module. For the time being, however, the only use of the tool is to list the five users with the greatest outstanding gold bets, along with their usernames, current multipliers, and silver balances. 
 
-#Using the tool
+It also outputs the five players with the greatest silver balances, though this is can be found easily by inspection using the site's silver ladder directly. It is included only as a convenience, as it helps users who have the "dark patterns" tech weigh their options (i.e., if there is a player with, say, 350,000 silver, it might be best to simply cast occuli on that target to receive the guaranteed 3.5k exp). 
+
+#Use
 From terminal, simply run
 
     $ python Roshpit.py
 
-The script takes about 42 seconds to run on my current internet connection (though I'm on a pretty poor internet connection, as I'm travelling).
+The script takes about 42 seconds to run on my current internet connection (though I'm on a pretty poor internet connection, as I'm pushing this while travelling). This checks the top 50 users on the gold ladder and returns the five with greatest outstanding gold bets.
 
+If you want to check a greater or lesser number of users on the gold ladder, simply pass a command line argument in the following manner (e.g., 100, to check the top 100 gold users):
+
+    $ python Roshpit.py 100
+
+Note that you may pass an arbitrarily large number, say, 1000000, and the application will check all users on the gold ladder.
+
+#Output
 The output will be of the form:
 
     Top five gold users:
@@ -33,3 +42,9 @@ The output will be of the form:
     |SpawnRulz   |3 x|0        |79155
 
 where (columnwise), we present the users' names, multipliers, outstanding gold bets and silver balances.
+
+#Future Work
+I'm open to expanding this scraper in any way that might be useful to users. However, in the immediate future I plan on
+
+1. Making the Top 5 Silver table optional
+2. Including a column specifying the user's current faction
