@@ -1,6 +1,11 @@
+import sys
 from bs4 import BeautifulSoup
-import urllib2
 from multiprocessing.dummy import Pool
+# import the correct version of urllibx
+if sys.version_info < (3, 0, 0):
+    import urllib2 as urllib
+else:
+    import urllib.request as urllib
 
 
 class Rosh():
@@ -58,8 +63,9 @@ class Rosh():
         if not self.silver_top:
             self._get_users_info('silver', 2, 5)
         self.gold_top.sort(key=lambda x: x[2])
-        self.silver_top.sort(key=lambda x: x[3])
-        return self.gold_top[-5::], self.silver_top
+        gold_top = self.gold_top[-5::]
+        gold_top.reverse()
+        return gold_top, self.silver_top
 
 
 def get_user_gold(soup):
@@ -92,7 +98,7 @@ def get_user_silver(soup):
 
 
 def can_opener(can):
-    soup = BeautifulSoup(urllib2.urlopen(can))
+    soup = BeautifulSoup(urllib.urlopen(can))
     return soup
 
 
