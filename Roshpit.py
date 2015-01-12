@@ -103,6 +103,9 @@ class Rosh():
         return user_info
 
     def _get_user_name(self, soup):
+        '''
+        Parse soup for username
+        '''
         name_plate = soup.find('div', 'name-plate')
         names = name_plate.find_all('div')
         name = names[0].text
@@ -111,15 +114,24 @@ class Rosh():
         return name
 
     def _get_user_gold(self, soup):
+        '''
+        Parse soup for outstanding gold
+        '''
         tag = 'outstanding_gold_bets'
         gold_bet = int(soup.find('div', id=tag).text.replace(',', ''))
         return gold_bet
 
     def _get_user_silver(self, soup):
+        '''
+        Parse soup for silver balance
+        '''
         silver = int(soup.find('span', id='silver-bal').get('data-silver'))
         return silver
 
     def _get_user_mult(self, soup):
+        '''
+        Parse soup for current multiplier
+        '''
         mult_element = soup.find('img', id='multiplier')
         if not mult_element:
             mult = 1
@@ -144,8 +156,6 @@ def can_opener(can):
 
 
 if __name__ == '__main__':
-    # reload(sys)
-    # sys.setdefaultencoding("utf-8")
     if len(sys.argv) == 1:
         check_top_n = 50
     else:
